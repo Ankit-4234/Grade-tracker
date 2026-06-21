@@ -19,7 +19,7 @@ include "db.php";
     <tr>
         <th>id</th>
         <th>name</th>
-        <th>math></th>
+        <th>math</th>
         <th>science</th>
         <th>english</th>
         <th>average</th>
@@ -40,10 +40,10 @@ while($row=mysqli_fetch_assoc($result)){
     <td><?php echo $row['english']; ?></td>
     <td><?php echo number_format($avg,2); ?> </td>
     <td>
-        <a href="edit.php?id=<?php echo $row=['id']; ?>">
+        <a href="edit.php?id=<?php echo $row['id']; ?>">
             <button class="btn edit">Edit</button>
 </a>
-        <a href="delete.php?id=<?php echo $row=['id']; ?>">
+        <a href="delete.php?id=<?php echo $row['id']; ?>">
             <button class="btn delete">Delete</button>
 </a>
 </td>
