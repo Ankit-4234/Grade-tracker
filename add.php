@@ -26,7 +26,7 @@ if(isset($_POST['submit'])){
         <input type="text" name="name" placeholder="student's name" required><br><br>
         <input type="number"name="math" placeholder="math's marks" required><br><br>
         <input type="number" name="science" placeholder="science's marks" required><br><br>
-        <input type="number" name="english" placeजolder="english's marks" required><br><br>
+        <input type="number" name="english" placeholder="english's marks" required><br><br>
         <button type="submit" name="submit">save students</button>
 </form>
 </div>
