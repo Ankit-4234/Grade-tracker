@@ -8,7 +8,8 @@ if(isset($_POST['submit'])){
     $sql="INSERT INTO students(name,math,science,english)
     values('$name','$math','$science','$english')";
     mysqli_query($conn,$sql);
-    header("location :index.php");
+    header("Location:index.php");
+    exit();
 }
 ?>
 <!DOCTYPE html>
@@ -21,11 +22,12 @@ if(isset($_POST['submit'])){
 </head>
 <body>
     <div class="container">
-        <form method="POST>
-        <input type="text" name="name" placeholder="etner name of student" required><br><br>
-        <input type="number"name="math" placeholder="enter marks obtained in maths" required><br><br>
-        <input type="number" name="science" placeholder="enter marks obtained in science" required><br><br>
-        <input type="number" name="english" placegolder="enter marks obtained in english" required><br><br>
+        <form method="POST">
+        <input type="text" name="name" placeholder="student's name" required><br><br>
+        <input type="number"name="math" placeholder="math's marks" required><br><br>
+        <input type="number" name="science" placeholder="science's marks" required><br><br>
+        <input type="number" name="english" placegolder="english's marks" required><br><br>
+        <button type="submit" name="submit">save students</button>
 </form>
 </div>
     </body>
