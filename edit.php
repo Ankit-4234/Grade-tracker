@@ -14,8 +14,9 @@ include "db.php";
     science= '$science',
     english= '$english'
     WHERE id =$id";
-    mqsqli_query($conn,$sql);
-    header("location:index.php");
+    mysqli_query($conn,$sql);
+    header("Location: index.php");
+    exit();
  }
  ?>
  <!DOCTYPE html>
