@@ -32,9 +32,9 @@ include "db.php";
         <h1> Edit students </h1>
         <form method="POST">
             <input type="text" name="name" value="<?php echo $row['name']; ?>" required>
-            <input type="math" name="math" value="<?php echo $row['math']; ?>" required>
-            <input type="science" name="science" value="<?php echo $row['science']; ?>" required>
-            <input type="english" name="english" value="<?php echo $row['english']; ?>" required>
+           <input type="number" name="math" value="<?php echo $row['math']; ?>" required>
+            <input type="number" name="science" value="<?php echo $row['science']; ?>" required>
+            <input type="number" name="english" value="<?php echo $row['english']; ?>" required>
             <button type="submit" name="update"> update student </button>
 </form>
 </div>
