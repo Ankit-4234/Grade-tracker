@@ -1,12 +1,19 @@
 <?php
+session_start();
+if (!isset($_SESSION['student_session_id'])) {
+    $_SESSION['student_session_id'] = bin2hex(random_bytes(16));
+}
+$session_id = $_SESSION['student_session_id'];
+?>
+<?php
 include "db.php";
 if(isset($_POST['submit'])){
     $name=$_POST['name'];
     $math=$_POST['math'];
     $science=$_POST['science'];
     $english=$_POST['english'];
-    $sql="INSERT INTO students(name,math,science,english)
-    values('$name','$math','$science','$english')";
+   $sql="INSERT INTO students(name,math,science,english,session_id)
+values('$name','$math','$science','$english','$session_id')";
     mysqli_query($conn,$sql);
     header("Location:index.php");
     exit();

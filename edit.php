@@ -1,4 +1,11 @@
 <?php
+session_start();
+if (!isset($_SESSION['student_session_id'])) {
+    $_SESSION['student_session_id'] = bin2hex(random_bytes(16));
+}
+$session_id = $_SESSION['student_session_id'];
+?>
+<?php
 include "db.php";
  $id= $_GET['id'];
  $result= mysqli_query($conn, "SELECT * FROM students where id =$id");
@@ -13,8 +20,8 @@ include "db.php";
     math= '$math',
     science= '$science',
     english= '$english'
-    WHERE id =$id";
-    mysqli_query($conn,$sql);
+   WHERE id =$id AND session_id='$session_id'";
+    $result= mysqli_query($conn, "SELECT * FROM students WHERE id =$id AND session_id='$session_id'");
     header("Location: index.php");
     exit();
  }

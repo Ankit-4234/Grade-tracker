@@ -1,4 +1,11 @@
 <?php
+session_start();
+if (!isset($_SESSION['student_session_id'])) {
+    $_SESSION['student_session_id'] = bin2hex(random_bytes(16));
+}
+$session_id = $_SESSION['student_session_id'];
+?>
+<?php
 include "db.php";
 ?>
 <!DOCTYPE html>
@@ -27,7 +34,7 @@ include "db.php";
 
 </tr>
 <?php
-$result= mysqli_query($conn,"SELECT * FROM students");
+$result= mysqli_query($conn,"SELECT * FROM students WHERE session_id = '$session_id'");
 while($row=mysqli_fetch_assoc($result)){
     $avg=($row['math']+$row['science']+$row['english']) /3;
 

@@ -1,4 +1,12 @@
 <?php
+session_start();
+if (!isset($_SESSION['student_session_id'])) {
+    $_SESSION['student_session_id'] = bin2hex(random_bytes(16));
+}
+$session_id = $_SESSION['student_session_id'];
+?>
+
+<?php
 $host='localhost';
 $name='root';
 $password='';
