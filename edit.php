@@ -8,7 +8,7 @@ $session_id = $_SESSION['student_session_id'];
 <?php
 include "db.php";
  $id= $_GET['id'];
- $result= mysqli_query($conn, "SELECT * FROM students where id =$id");
+ $result= mysqli_query($conn, "SELECT * FROM students where id =$id AND session_id='$session_id'");
  $row=mysqli_fetch_assoc($result);
  if(isset($_POST['update'])){
     $name= $_POST['name'];
@@ -21,7 +21,7 @@ include "db.php";
     science= '$science',
     english= '$english'
    WHERE id =$id AND session_id='$session_id'";
-    $result= mysqli_query($conn, "SELECT * FROM students WHERE id =$id AND session_id='$session_id'");
+     mysqli_query($conn,$sql);
     header("Location: index.php");
     exit();
  }
